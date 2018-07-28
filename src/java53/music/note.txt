@@ -1,0 +1,5 @@
+所有类都在music包中
+Note类中定义了三个音符
+Instrument类中声明并实现了一个play方法
+Wind类继承了Instrument类，重载了play方法
+Music类中包含了main方法

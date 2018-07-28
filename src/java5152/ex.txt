@@ -1,0 +1,54 @@
+1.设计一个动物声音“模拟器”，希望模拟器可以模拟许多动物的叫声，要求如下。
+编写接口Animal，方法cry().
+编写抽象类AbstractAnimal类，getAnimalName()方法，要求各种具体的动物给出自己的叫声和种类名称
+编写模拟器类Simulator
+该类有一个paySound（Animal animal）方法，该方法的参数是Animal类型。即参数animal可以调用Animal的子类重写cry()方法
+播放具体动物的声音，调用子类重写getAnimalName()方法显示动物种类的名称
+编写AbstractAnimal类的子类：Dog和Cat
+
+2. 大学里的学生（Student）需要交学费，而研究生（Graduate）作为学生比较特殊，除了需要交学费外，还可以获取一部分
+科研津贴，由学校（University）统一发放。此外，学校还需要发放教师（Teacher）的工资。
+编写代码模拟上述场景：
+1) 设计抽象类Student：
+l 属性包括姓名（name）、学费（fee）；
+l 方法包括：
+- 构造方法Student（String name）
+- 抽象方法void setFee（int fee）
+- 抽象方法int getFee（）
+2) 定义一个接口Salary：包含一个方法int getSalary();
+3) 定义一个研究生类Graduate，继承Student类且实现Salary接口：
+l 新增属性：收入（salary）
+l 方法包括：
+- 构造方法Graduate（String name）
+- 重写void setFee（int fee）
+- 重写int getFee（）
+- 重写int getSalary（），研究生获得工资1500
+- 新增方法boolean isLoan（），判断是否需要贷款（若收入小于学费则需贷款）
+4) 定义一个教师类（Teacher）：
+l 属性包括：姓名（name）、收入（salary）
+l 方法包括：
+- 构造方法Teacher（String name）
+- 重写int getSalary（），教师获得工资3000
+5) 定义一个大学类（University），通过void payOff（Salary s）方法给研究生和教师发放并打印工资。
+6）定义主类Test，主函数中至少包括以下代码：
+public static void main(String args[]){
+	Graduate g = new Graduate(“小亮”);
+	g.setFee(1000);
+
+`	University u = new University();
+	u.payOff(g);
+	System.out.println(“是否需要贷款”+ g.isLoan())
+
+	Teacher t = new Theader(“大王”);
+	u.payOff(t);
+}
+
+3. 一个蛋糕店，生成4种蛋糕，芝士、水果、奶油蛋糕、巧克力，客户键盘输入“水果”,
+就把店里的水果蛋糕信息打印出来，如果是“芝士”、“奶油”、“ 巧克力”同理
+
+4. 一个老板，有2台机，一个司机，模拟老板输入“benz”，司机就把奔驰车开过来，
+老板输入“bmw”，司机就把宝马车开过来
+
+5. 用抽象类的形式计算，已知电流和电阻，计算电压和电功率
+
+

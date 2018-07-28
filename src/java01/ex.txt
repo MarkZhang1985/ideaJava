@@ -1,0 +1,11 @@
+1.使用IDEA开发工具编写Member.java程序。在该程序中输出“Tom and Merry”。
+2.修改上述案例将Tom和Merry通过控制台接收输入获得，和“and”拼接成一个字符串“Tom and Merry”，输出到控制台。
+3.在一个java原文件中创建2个类，和main方法，并使用注释的方式分别对类、方法进行解释说明，使用cmd的方式将类编译成字节码文件。
+4.创建Calculation.java类，并在该类中创建
+add(int a, int b), mul(int a, int b),sub（int a, int b）,div(int a, int b)方法，即实现过程。创建Test Calculation类，
+并分别调用Calculation类中的四种方法，将返回值赋值给addResult,mulResult,subResult,divResult四个变量，
+使用System.out.println()方法将值打印到控制台。
+
+知识补充：如果需要通过main方法调用另一个类的方法，有多种办法。其中一种就是将另一个类的方法使用static修饰。
+例如：public static int add(int a, int b){ return a + b;}
+调用示例：Calculation.add(1,2);
