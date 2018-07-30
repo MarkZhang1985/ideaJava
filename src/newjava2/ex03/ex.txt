@@ -1,0 +1,104 @@
+User 考生信息类
+id:int 编号,
+user:String 考生姓名
+tel: String 考生联系方式
+number: String 考生准考证号
+grade: int 考试成绩
+subject: String 考题类别
+date: util.Date 考试时间
+address: String 考生联系地址
+examinationState: int 考试状态
+pass: String 考生密码
+
+Admin 管理员信息表
+id: int 管理员名称
+name: String 管理员名称
+password: String 管理员密码
+
+ExaminationQuestionsCategory 考题类别信息表
+id: int 编号
+category: String 类别
+
+ExaminationQuestions 考题信息表
+id: int 编号
+category: String 类别
+type: int 类型
+examResult: int 考试成绩
+examContent: String 考试内容
+examAnswer: String 考试答案
+currentAnswer: String 正确答案
+setQuestions: String 所属套题
+
+统一要求，创建类，创建全参构造器，和toString方法，每个类录入真实信息20条，并分别打印。
+
+
+
+
+
+
+
+
+
+
+
+bookcase 图书书架信息类
+	id：int	图书馆书架编号
+	name：String 	图书馆书架名
+bookinfo 图书信息类
+	bookcode: String 图书条形码
+	bookname：String 图书名称
+	typeid：int 图书类型
+	author：String图书作者
+	translator： String 图书译者
+	图书ISBN:	String 图书ISBN
+	Price：	float	图书价格
+	Page：	int	图书页码
+	Bookcase： int 图书书架
+	Storage：	int 图书库存
+	inTime：		Date 入库时间
+	operator：	String 操作员
+	del：int	是否删除
+	id：	int	编号
+borrow 图书借阅信息类
+	id： int 编号
+	readerid：int 读者编号
+	bookid：int		图书id
+	borrowTime:Date	图书借阅时间
+	backTime：Date	图书归还时间
+	operator：String 操作员
+	isback: int 是否归还
+manager 管理员信息类
+	id：int 管理员编号
+	name：	管理员姓名
+	password：管理员密码
+parameter 参数设置类
+publishing 出版社信息类
+	ISBN：String	图书ISBN
+	pubName：String	出版社名称
+purview 权限信息类
+	id：int	权限id
+	name：String 权限名
+reader 读者信息类
+	id：int 编号
+	name：String 读者姓名
+	sex：String	性别
+	barcode：String 读者条形码
+	vocation：String 读者职业
+	birthday：Date	出生日期
+	paperType：String 读者证件
+	paperNo：String 证件号码
+	tel：String	读者电话
+	email：String	E-mail地址
+	createTime： Date 创建时间
+	operator：	String 操作人
+	remark： String	备注
+	typeId：	int	读者类型
+readertype 读者类型信息类
+	id：int	读者类型编号
+	name：String	读者类型名称
+booktype 图书类型信息类
+	id	图书类型编号
+	typename：	类型名称
+	days	：	借阅天数
+通过以上的描述创建类，属性私有，get、set方法，并重写toString（）方法。每个类利用构造器创建2个对象，
+并打印该对象。

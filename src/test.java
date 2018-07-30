@@ -18,12 +18,16 @@ public class test {
 //		System.out.println('\u0000');
 //		System.out.println('\u1122');
 
-				Circle x = new Circle();
-				System.out.println(x.PI);
-				System.out.println(Circle.PI);
-				Circle.PI = 3.14;
-				System.out.println(x.PI);
-				System.out.println(Circle.PI);
+//				Circle x = new Circle();
+//				System.out.println(x.PI);
+//				System.out.println(Circle.PI);
+//				Circle.PI = 3.14;
+//				System.out.println(x.PI);
+//				System.out.println(Circle.PI);
+
+		int arr[]= new int[10];
+		System.out.println(arr.length);
+		System.out.println(arr[0]);
 
 	}
 

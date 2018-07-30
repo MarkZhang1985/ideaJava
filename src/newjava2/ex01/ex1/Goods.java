@@ -1,6 +1,6 @@
-package newjava2.ex1;
+package newjava2.ex01.ex1;
 
-import java.util.Date;
+import java.util.Calendar;
 
 /**
  * 1.  创建Goods类，声明实例变量id，name，createTime，price
@@ -12,7 +12,14 @@ public class Goods {
 
 	public String id;
 	public String name;
-	public Date createTime;
+	public Calendar createTime;
 	public double price;
 
+	@Override
+	public String toString() {
+		return "id: " + this.id
+				+ "\nname: " + this.name
+				+ "\ncreate time: " + this.createTime.get( Calendar.YEAR ) + "年" + this.createTime.get(Calendar.MONTH)+ "月" + this.createTime.get(Calendar.DAY_OF_MONTH) + "日"
+				+ "\nprice: " + this.price;
+	}
 }
