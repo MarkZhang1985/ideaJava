@@ -1,0 +1,66 @@
+习题一:用Scanner类在键盘输入一个文件全路径（txt），如果该文件存在,则把文件内容读到控制台里，
+如文件不存在，提则用户“您输入的文件不存在”
+
+习题二：键盘输入任意长度，任意行数的文本，如果当输入的是quit或end的时候，则结束输入，
+把所有输入的内容，写到自己指定位置的文件内。
+
+习题三：键盘输入一个自己指定的文件名，按行读取文件内容，然后，再按行反向输出到指定的另一个文件中
+
+习题四：输盘输入一个自己指定的文件名，统计该文件中，每个字符出现的个数（纯英文文件）
+
+习题 五：已知D盘下有如果文件score.txt文件，文件里的数据格式如下（（姓名-年龄-总分)
+lucy-28-98 lily-23-97 robt-25-100 wili-15-100 klin-29-93），把文件的每一条数据进行判断
+如果总分大于90分，则存入D盘下score_highscore.txt文件中，
+介于75分和90分之间的则存入D盘下score_middlescore.txt文件中，
+低于75分的，则存入D盘下score_lowscore.txt文件中。
+
+
+
+习题 六：创建类 MyInput
+私有构造器
+  // Read a string from the keyboard
+  public static String readString (){
+  }
+
+  // Read an int value from the keyboard
+  public static int readInt () {
+  }
+
+  // Read a double value from the keyboard
+  public static double readDouble () {
+  }
+
+  // Read a byte value from the keyboard
+  public static double readByte () {
+  }
+
+  // Read a short value from the keyboard
+  public static double readShort () {
+  }
+
+  // Read a long value from the keyboard
+  public static double readLong () {
+  }
+
+  // Read a float value from the keyboard
+  public static double readFloat () {
+  }
+}
+
+习题 七 File练习题：
+查找指定目录中，扩展名为.txt的文件
+将目录和目录下的文件以下面的形式打印在控制台上
+文件夹 aaa
+			|-----文件夹ccc
+					|-----文件c.jsp
+			|-----文件tt.txt
+			|-----文件abc.jpg
+文件夹bbb
+			|-----文件a.txt
+文件hello.ppt
+
+习题 八 删除一个有文件的文件夹(3层文件夹)，删除最外面一层
+习题九，切割文件
+	Window10.iso
+		500M  window10_1.iso
+			   Window10_2.iso

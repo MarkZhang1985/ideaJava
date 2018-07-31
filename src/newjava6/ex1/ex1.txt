@@ -1,0 +1,222 @@
+1 简答题（写概念，思原理）
+1.1 什么是节点流和过滤流。
+1.2 简述装饰模式所实现功能。
+2 填空题（读代码、加注释）
+2.1 下面的代码用于在指定位置添加注释。
+1.	/*
+2.	*此方法的功能何在：（     ）
+3.	*/
+4.	    public static void copy(InputStream is, OutputStream os)
+5.	throws IOException {
+6.	        byte[] buffer = new byte[8 * 1024];
+7.	        int b = -1;
+8.	     //此句的意义何在？
+9.	        while ((b = is.read(buffer)) != -1) {
+10.	          //此句的意义何在？
+11.	            os.write(buffer, 0, b);
+12.	        }
+13.	     //此句的意义何在？
+14.	        os.flush();
+15.	    }
+16.	/*
+17.	*此方法的功能何在：（     ）
+18.	*/
+19.	    public void testCopy() {
+20.	        FileInputStream fis = null;
+21.	        FileOutputStream fos = null;
+22.	        try {
+23.	          //此句的意义何在？
+24.	            fis = new FileInputStream("d:/temp/names.txt");
+25.	          //此句的意义何在？
+26.	            fos = new FileOutputStream("d:/temp/names1.txt");
+27.	            IOUtils.copy(fis, fos);
+28.	        } catch (IOException e) {
+29.	            TestCase.fail();
+30.	     //此finally的意义何在？
+31.	        } finally {
+32.	            try {
+33.	                if (fis != null)
+34.	                    fis.close();
+35.	                if (fos != null)
+36.	                    fos.close();
+37.	            } catch (IOException e) {
+38.	            }
+39.	        }
+40.	    }
+2.2 下面的代码用于在指定位置添加注释。
+1.	/*
+2.	*此方法的功能何在：（     ）
+3.	*/
+4.	public static void saveDouble(double data, OutputStream dest)
+5.	            throws IOException {
+6.	      //此句的意义何在？
+7.	        DataOutputStream dos = new DataOutputStream(dest);
+8.	     //此句的意义何在？
+9.	        dos.writeDouble(data);
+10.	        dos.flush();
+11.	    }
+12.	/*
+13.	*此方法的功能何在：（     ）
+14.	*/
+15.	    public static double loadDouble(InputStream src)
+16.	throws IOException {
+17.	      //此句的意义何在？
+18.	        DataInputStream dis = new DataInputStream(src);
+19.	     //此句的意义何在？
+20.	        double d = dis.readDouble();
+21.	        return d;
+22.	    }
+2.3 下面的代码用于在指定位置添加注释。
+1.	/*
+2.	*此方法的功能何在？（     ）
+3.	*/
+4.	    public static void saveLines(String[] lines, OutputStream src)
+5.	            throws IOException {
+6.	     //此句的意义何在？
+7.	        BufferedWriter bw =
+8.	new BufferedWriter(new OutputStreamWriter(src));
+9.	        if (lines != null && lines.length > 0) {
+10.	           //此句的意义何在？
+11.	            for (int i = 0; i < lines.length - 1; i++) {
+12.	              //此句的意义何在？
+13.	                bw.write(lines[i]);
+14.	               //此句的意义何在？
+15.	                bw.newLine();
+16.	            }
+17.	        }
+18.	     //此句的意义何在？
+19.	        bw.write(lines[lines.length - 1]);
+20.	        bw.flush();
+21.	    }
+22.	/*
+23.	*此方法的功能何在？（     ）
+24.	*/
+25.	    public static String[] loadLines(InputStream src)
+26.	throws IOException {
+27.	       //此句的意义何在？
+28.	        BufferedReader br =
+29.	new BufferedReader(new InputStreamReader(src));
+30.	        List<String> lineList = new ArrayList<String>();
+31.	        String line = null;
+32.	     //此句的意义何在？
+33.	        while ((line = br.readLine()) != null) {
+34.	          //此句的意义何在？
+35.	            lineList.add(line);
+36.	        }
+37.	     //此句的意义何在？
+38.	        return lineList.toArray(new String[] {});
+39.	    }
+2.4 下面的代码用于在指定位置添加注释。
+1.	/*
+2.	*此方法的功能何在？（     ）
+3.	*/
+4.	    public static void saveLogDataList(List<LogData> logDataList, File logFile)
+5.	 {
+6.	        PrintWriter pw = null;
+7.	        try {
+8.	            pw = new PrintWriter(new FileOutputStream(logFile));
+9.	            for (LogData ld : logDataList) {
+10.	                pw.println(ld.toString());
+11.	            }
+12.	            pw.flush();
+13.	        } catch (IOException e) {
+14.	            e.printStackTrace();
+15.	            throw new RuntimeException("", e);
+16.	        } finally {
+17.	            if (pw != null)
+18.	                pw.close();
+19.	        }
+20.	    }
+21.	/*
+22.	*此方法的功能何在？（     ）
+23.	*/
+24.	    public static List<LogData> loadLogDataList(File logFile) {
+25.	        BufferedReader br = null;
+26.	        List<LogData> logDataList = new ArrayList<LogData>();
+27.	        try {
+28.	            br = new BufferedReader(new InputStreamReader(new FileInputStream(
+29.	                    logFile)));
+30.	            String line = null;
+31.	            while ((line = br.readLine()) != null) {
+32.	                LogData loginLog = new LogData(line);
+33.	                logDataList.add(loginLog);
+34.	            }
+35.	            return logDataList;
+36.	        } catch (IOException e) {
+37.	            e.printStackTrace();
+38.	            throw new RuntimeException("", e);
+39.	        } finally {
+40.	            if (br != null)
+41.	                try {
+42.	                    br.close();
+43.	                } catch (IOException e) {
+44.	                }
+45.	        }
+46.	    }
+3 编程题（改代码，写代码）
+3.1 实现IOUtils类的下列方法。
+1.	public class IOUtils {
+2.	    /**
+3.	     * 使用缓冲字节流实现文件的拷贝
+4.	     * @param src 要拷贝的文件
+5.	     * @param dest 拷贝后的文件
+6.	     * @throws IOException
+7.	     */
+8.	    public static void copyFile(File src, File dest) throws IOException {
+9.
+10.	    }
+11.
+12.	    /**
+13.	     * 使用字节流实现拷贝功能
+14.	     * @param is 字节输入流
+15.	     * @param os 字节输出流
+16.	     * @throws IOException
+17.	     */
+18.	    public static void copy(InputStream is, OutputStream os) throws IOException {
+19.
+20.	    }
+21.
+22.	       /**
+23.	     * 增强OutputStream写出double数据
+24.	     * @param data double数据
+25.	     * @param dest 基本输出流
+26.	     * @throws IOException
+27.	     */
+28.	    public static void saveDouble(double data, OutputStream dest)
+29.	            throws IOException {
+30.
+31.
+32.	    }
+33.	    /**
+34.	     * 增强InputStream读取double数据
+35.	     * @param src 输入流
+36.	     * @return 从输入流中读取的double数据
+37.	     * @throws IOException
+38.	     */
+39.	    public static double loadDouble(InputStream src) throws IOException {
+40.
+41.	    }
+42.	    /**
+43.	     * 将字符串数组中的每一项内容按行写入基本输出流
+44.	     * @param lines 字符串数据
+45.	     * @param src  基本输出流
+46.	     * @throws IOException
+47.	     */
+48.	    public static void saveLines(String[] lines, OutputStream src)
+49.	            throws IOException {
+50.
+51.	    }
+52.
+53.	    /**
+54.	     * 从基本输入流中成行读取文本存入字节数组返回
+55.	     * @param src 基本输入流
+56.	     * @return  从输入流中读取到的数据
+57.	     * @throws IOException
+58.	     */
+59.	    public static String[] loadLines(InputStream src) throws IOException {
+60.
+61.	    }
+62.
+63.	}
+
+
