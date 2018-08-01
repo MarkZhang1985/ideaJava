@@ -10,31 +10,28 @@ public class checkEngWordNum {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner( System.in );
-		String filePath = null;
+		String inpath = null;
 		System.out.println("本程序查找文件英文字符的个数，请输入一个txt文件的全路径：");
 		if(scanner.hasNextLine()){
-			filePath = scanner.nextLine();
+			inpath = scanner.nextLine();
 		}
 		scanner.close();
 
-		File file = new File( filePath );
-		FileReader fr = null;
-		BufferedReader br = null;
-		char[] chars = new char[1024];
-		StringBuffer sb = new StringBuffer( 100000 );
-		if(!file.exists() && file.length()!=0){
+		File in = new File( inpath );
+
+		if(!in.exists() && in.length()!=0){
 			System.out.println("文件不存在或文件没有内容。");
 		}else{
-			try {
-				fr = new FileReader( file );
-				br = new BufferedReader( fr );
-				int len = -1;
+			try(BufferedReader br = new BufferedReader( new FileReader( in ) )) {
+				char[] chars = new char[1024];
+				StringBuffer sb = new StringBuffer();
+				int len;
 				while((len = br.read(chars)) != -1){
-					sb.append( chars );
+					sb.append( chars,0,len );
 				}
 
 				char[] letters = sb.toString().trim().toLowerCase().toCharArray();
-				int count = 0;
+				int count;
 				for(char ch = 'a'; ch<='z'; ch++){
 					count = 0;
 					for(char le : letters){
@@ -47,14 +44,6 @@ public class checkEngWordNum {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
-			}finally {
-				if(br != null){
-					try {
-						br.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
 			}
 		}
 	}

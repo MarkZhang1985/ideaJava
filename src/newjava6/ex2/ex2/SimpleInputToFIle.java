@@ -12,23 +12,13 @@ public class SimpleInputToFIle {
 	public static void main(String[] args) {
 
 		File file = new File( "C:\\Users\\zhangkaiming\\ideaJava\\src\\newjava6\\ex2\\ex2","input.txt" );
-		try {
-			file.createNewFile();
-			System.out.println("创建文件成功。");
-
-			//下面两种方法都可以
-
-//			FileWriter fw = new FileWriter( file );
-//			BufferedWriter bw = new BufferedWriter( fw );
-
-			FileOutputStream fos = new FileOutputStream( file );
-			OutputStreamWriter osw = new OutputStreamWriter(fos);//不需要转码
-			BufferedWriter bw =new BufferedWriter( osw );
-
+		try(BufferedWriter bw = new BufferedWriter( new FileWriter(file) )) {
+			if(file.createNewFile()) System.out.println("创建文件成功。");
 
 			Scanner scanner = new Scanner( System.in );
 			System.out.println("输入任意长度，任意行数的文本，如果当输入的是quit或end的时候，则结束输入。");
 			String str;
+
 			a:while(true) {
 				while (scanner.hasNextLine()) {
 					str = scanner.nextLine();
@@ -37,13 +27,11 @@ public class SimpleInputToFIle {
 						break a;
 					}else{
 						bw.write( str );
-						bw.write( '\n' );
-						bw.flush();//很重要
+						bw.newLine();
 					}
-
 				}
 			}
-			bw.close();
+			bw.flush();//清空缓存，写入文件，没有这句的话，文件不会被保存。
 
 		} catch (IOException e) {
 			System.out.println("无法创建文件。");

@@ -11,69 +11,55 @@ public class invertedOutputToFile {
 	public static void main(String[] args) {
 
 		Scanner scanner = new Scanner( System.in );
-		String inFilePath = null;
-		String outFilePath = null;
-		File inFile = null;
-		File outFile = null;
-		FileInputStream fis = null;
-		FileOutputStream fos = null;
-		InputStreamReader isr = null;
-		OutputStreamWriter osw= null;
-		char[] chars = new char[1024];
-		StringBuffer sb = new StringBuffer( 10000 );
-
+		String inPath = null;
+		String outPath = null;
+		File in, out;
 
 		System.out.println("请输入一个想要读取文件的路径：");
 		if(scanner.hasNext()){
-			inFilePath = scanner.next();
+			inPath = scanner.next();
 		}
 
-		inFile = new File( inFilePath );
-		if(!inFile.exists()){
+		in = new File( inPath );
+		if(!in.exists()){
 			System.out.println("要读取的文件不存在。");
 			return;
 		}else{
-			System.out.println("尝试打开：" + inFile.toString());
-			System.out.println("文件大小：" + inFile.length() + 'b');
+			System.out.println("尝试打开：" + in.toString());
+			System.out.println("文件大小：" + in.length() + 'b');
 		}
 
 		System.out.println("请输入反向复制文件的名称：");
 		if(scanner.hasNext()){
-			outFilePath = "C:\\Users\\zhangkaiming\\ideaJava\\src\\newjava6\\ex2\\ex3\\" + scanner.next() + ".txt";
+			outPath = "C:\\Users\\zhangkaiming\\ideaJava\\src\\newjava6\\ex2\\ex3\\" + scanner.next() + ".txt";
 		}
-		outFile = new File( outFilePath );
+		out = new File( outPath );
 		try {
-			outFile.createNewFile();
+			out.createNewFile();
 			System.out.println("复制文件建立成功。");
 		} catch (IOException e) {
 			System.out.println("复制文件创建失败。");
 		}
 
-		try {
-			System.out.println("尝试反向复制文件。。");
-			fis = new FileInputStream( inFile );
-			fos = new FileOutputStream( outFile );
-			isr = new InputStreamReader( fis,"GBK" );
-			osw = new OutputStreamWriter( fos,"GBK" );
-			BufferedReader br = new BufferedReader( isr );
-			BufferedWriter bw = new BufferedWriter( osw );
+		try(BufferedReader br = new BufferedReader( new InputStreamReader( new FileInputStream( in ),"GBK" ) );
+			BufferedWriter bw = new BufferedWriter( new FileWriter( out ) )) {//写入时按照utf-8编码写入
 
-			int len = -1;
+			System.out.println("尝试反向复制文件。。");
+
+			char[] chars = new char[1024];
+			StringBuffer sb = new StringBuffer();
+			int len;
 			while((len = br.read(chars)) != -1) {
-				sb.append( chars );
+				sb.append( chars,0,len );
 			}
-			sb = sb.reverse();
+			sb = sb.reverse();//反转
 
 			bw.write( sb.toString() );
-
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-
-
 	}
 }
