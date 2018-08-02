@@ -195,5 +195,11 @@ public class test {
 
 
 	}
+	@Test
+	public void test06(){
+		System.out.println(Double.valueOf( "90.09" ).doubleValue()-1);
+		System.out.println(Double.parseDouble( "90.09" )-1);
+	}
+
 
 }
