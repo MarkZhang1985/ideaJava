@@ -1,5 +1,7 @@
 package newjava2.ex02.ex5;
 
+import java.util.Date;
+
 /**
  * @Auther: zhangkaiming
  * @Date: 2018/8/4 15:42
@@ -14,7 +16,38 @@ public class Order {
 
 	private Goods goods;
 	private String id;
-	private String createTime;
-	private String status;
+	private Date createTime;
+	private boolean status;//订单状态，true表示有效，false表示无效
 
+	public Goods getGoods() {
+		return goods;
+	}
+
+	public void setGoods(Goods goods) {
+		this.goods = goods;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 }

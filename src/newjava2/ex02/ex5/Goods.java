@@ -1,5 +1,7 @@
 package newjava2.ex02.ex5;
 
+import java.util.Date;
+
 /**
  * @Auther: zhangkaiming
  * @Date: 2018/8/4 15:43
@@ -11,4 +13,71 @@ package newjava2.ex02.ex5;
  * 修改此类，将上架改为类属性，并修改源代码。
  */
 public class Goods {
+
+	private String name;
+	private String type;
+	private Integer inventory;
+	private Double price;
+
+	private static Date addTime;
+
+	public Goods(String name) {
+		this.name = name;
+	}
+
+	public Goods(String name, String type) {
+		this(name);
+		this.type = type;
+	}
+
+	public Goods(String name, String type, Integer inventory) {
+		this(name, type);
+		this.inventory = inventory;
+	}
+
+	public Goods(String name, String type, Integer inventory, Double price) {
+		this(name, type, inventory);
+		this.price = price;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Integer getInventory() {
+		return inventory;
+	}
+
+	public void setInventory(Integer inventory) {
+		this.inventory = inventory;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public static Date getAddTime() {
+		return addTime;
+	}
+
+	public static void setAddTime(Date addTime) {
+		Goods.addTime = addTime;
+	}
 }
