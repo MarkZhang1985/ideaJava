@@ -1,0 +1,30 @@
+习题 六：创建类 MyInput
+私有构造器
+  // Read a string from the keyboard
+  public static String readString (){
+  }
+
+  // Read an int value from the keyboard
+  public static int readInt () {
+  }
+
+  // Read a double value from the keyboard
+  public static double readDouble () {
+  }
+
+  // Read a byte value from the keyboard
+  public static double readByte () {
+  }
+
+  // Read a short value from the keyboard
+  public static double readShort () {
+  }
+
+  // Read a long value from the keyboard
+  public static double readLong () {
+  }
+
+  // Read a float value from the keyboard
+  public static double readFloat () {
+  }
+}

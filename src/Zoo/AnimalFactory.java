@@ -3,6 +3,7 @@ package Zoo;
 /**
  * 动物工厂类
  */
+
 public class AnimalFactory {
 
 	public static final String TIGER = "老虎";
