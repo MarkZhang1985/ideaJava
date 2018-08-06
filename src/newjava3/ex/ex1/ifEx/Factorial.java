@@ -12,6 +12,7 @@ import org.junit.Test;
  *    * *
  *    * * *
  *    * * * *
+ *    8.	通过使用递归方法，输出1-100奇数的和。
  */
 public class Factorial {
 
@@ -25,10 +26,19 @@ public class Factorial {
 	public void factStar(int num){
 		if(num == 1) System.out.println("*");
 		else {
+			factStar( num - 1 );
 			for(int i = 0; i<num; i++)
 				System.out.print("*");
 			System.out.println();
-			factStar( num - 1 );
+		}
+	}
+
+	//ex8
+	public int sum(int i){
+		if(i == 1)return 1;
+		else {
+			if(i%2 == 0)return sum(i-1);
+			else return i + sum( i-1 );
 		}
 	}
 
@@ -38,6 +48,14 @@ public class Factorial {
 		//输出结果：
 		//3628800
 		factStar( 4 );
+		//输出结果：
+//		*
+//		**
+//		***
+//		****
+		System.out.println(sum(10));
+		//输出结果：
+		//25
 	}
 
 }

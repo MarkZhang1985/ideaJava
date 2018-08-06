@@ -1,0 +1,89 @@
+第一题：随机生成100个1-100以内的随机数，键盘随机输入一个数，求在这100个随机数中，
+键盘输入的这个数的位置是多少？如果有多个这个数，则默认显示第一个这个数的位置，
+如果随机数内不包输入的这个数，显示“无”
+
+第二题：键盘输入一个为M，产生M个，一到M之内的随机数，求随机数集合里有多个这个M的数，
+并求出总和，如果无这个M数，则总和输出为0
+
+第三题：随机生成100个随机数，放到集合里，然后判断这100个数是不是有重复的，
+如果有则再重新成生新数，直接这100个随机数，全是重复为止，最后，打印每一个随机数是多少，
+并求出总和，和最大值与最小值
+
+第四题ArrayList集合排序：
+使用Scanner类从键盘随机输入10个整数保存到List集合中，并按倒序、从大到小的顺序显示出来。
+通过数组构建自己Zoo动物园类
+实现的功能描述：
+构造器：创建基础构造器，并给属性ZooName赋值的构造器，通过基础构造器，给zooCreateTime赋值。
+属性：
+-zooName： 动物园名称 getter setter方法
+-zooCreateTime: 动物园创建时间 +getter  -setter方法
+-count 当前动物数量 +getter –setter
+方法：
+addAnimal (Animal ani);
+findAnimal (int index);
+updateAnimal(int index，properties);修改动物
+removeAnimal(int index);删除动物
+changeZooName();改名
+注意：
+当动物园位置不够的时候调用私有方法，扩容。（扩容：数组的固定长度固定，增加数组长度 1/2）
+扩容后删除动物不需要减容。
+count不能直接使用是私有属性。
+私有方法不在此进行阐述，自行创建。
+
+
+第五题LinkedList练习题
+自实现简单的MyLinkedList集合
+创建Node内部类
+Node 创建属性:
+Node prev
+Object item
+Node next
+为Node创建构造器给属性初始化的构造器。
+使用递归的方法创建
+nodeAdd(int index，Object obj)方法
+nodeUpdate(Object obj)方法
+nodeRemove(int index)方法
+nodeFind(int index)方法
+创建first和last属性，类型为Node，存放第一和最后一个节点。并且创建
+Add（）方法添加
+Update（）方法修改
+Remove()方法删除
+Find（）方法查询
+
+第六题Map练习题：
+请把学生名与考试分数录入到Map中，并按分数显示前三名成绩学员的名字。
+姓名	分数
+Tom	88
+Jerry	99
+Michael	78
+Jeck	67
+Mark	69
+Lily		56
+
+第七题 TreeSet练习题：
+1. 定义一个Employee类:
+1)	该类包含：private成员变量 NAME AGE MYDATE GENDER
+2)	其中 birthday 为 MyDate 类的对象。
+3)	并为每一个属性定义 getter, setter 方法。
+4)	重写 toString 方法输出name, age, birthday。
+
+2.	定义一个MyDate类:
+1)	该类包含:	private成员变量YEAR MONTH DAY
+2)	并为每一个属性定义 getter, setter 方法；
+
+3.	创建Employee类的5个对象，并把这些对象放入 TreeSet 集合中
+	{
+Michael，18 ，2000-4-23 ，F
+Jerry，20 ，1998-6-1 ，F
+Tom，20 ，1998-6-6 ，F
+Miko ，25 ，1995-12-30 ，M
+Jen ，18 ， 2000-2-12 ，M
+}
+
+4.	按以下两种方式对集合中的元素进行排序，并遍历输出：
+
+1). 使Employee 实现 Comparable 接口，并按 name 升序排序
+
+2). 创建 TreeSet 时传入 Comparator对象，按生日日期的降序排序。
+
+提示：Employee类是否需要重写equals()方法？MyDate类呢？
