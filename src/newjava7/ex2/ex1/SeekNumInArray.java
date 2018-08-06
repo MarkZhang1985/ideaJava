@@ -1,4 +1,4 @@
-package newjava7.ex2;
+package newjava7.ex2.ex1;
 
 import org.junit.Test;
 
